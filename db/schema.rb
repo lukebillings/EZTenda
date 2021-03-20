@@ -10,10 +10,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_20_160343) do
+ActiveRecord::Schema.define(version: 2021_03_20_184052) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bids", force: :cascade do |t|
+    t.text "listing_deal"
+    t.boolean "accepted"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id"
+    t.bigint "tender_id"
+    t.index ["tender_id"], name: "index_bids_on_tender_id"
+    t.index ["user_id"], name: "index_bids_on_user_id"
+  end
+
+  create_table "tenders", force: :cascade do |t|
+    t.integer "deal_size"
+    t.integer "volume"
+    t.integer "deal_length"
+    t.date "end_date"
+    t.integer "total_bids"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_tenders_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -23,8 +46,15 @@ ActiveRecord::Schema.define(version: 2021_03_20_160343) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "name"
+    t.boolean "brand", default: false
+    t.boolean "bar", default: false
+    t.text "about"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "bids", "tenders"
+  add_foreign_key "bids", "users"
+  add_foreign_key "tenders", "users"
 end
