@@ -1,7 +1,9 @@
 <h1>Tenders Location</h1>
+<p>Now is <%= Time.now() %><p>
 <div class="container">
   <div class="row justify-content-around">
     <div class="card">
+
       <img src="img_avatar.png" alt="Picture" style="width:100%">
       <div class="container">
         <h4><b>First Tender</b></h4>
@@ -22,5 +24,14 @@
         <p>IPA MadDog</p>
       </div>
     </div>
+  
+  </div>
+    <br>
+    <br>
+    <br>
+    <br>
+  <div class="row justify-content-center">
+  
+  <%= link_to 'Create Tender', new_bar_path, class: 'btn btn-info' %>
   </div>
 </div>
