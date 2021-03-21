@@ -11,13 +11,13 @@
         <% @tenders.each do |tender| %>
           <div class="tendercard">
             <div class="tendercard-description">
-            <h4>PING PONG BAR</h4>
+            <h4> <%=tender.user.name%></h4>
             <br>
             <h5> <strong>About Bar</strong></h5>
              <br>
-            <h5>Tonic Water</h5>
+            <h5> <%= tender.category %> </h5>
              <br>
-            <h4> <%= tender.deal_length %> months </h4>
+            <h4> <%= tender.deal_length %> months contract </h4>
              <br>
             <h4> £ <%= tender.deal_size %> </h4>
              <br>

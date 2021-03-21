@@ -11,11 +11,11 @@ Bid.destroy_all
 Tender.destroy_all
 User.destroy_all
 
-
+bar_array = ["Ping Pong", "Caucho", "BE AT ONE", "WEATHERSPOON", "GREENE KING"]
 
 #bar users
 10.times do
-  user = User.create!(name: Faker::Name.name,
+  user = User.create!(name: bar_array.sample,
     email: Faker::Internet.email,
     password: "123456",
     brand: false,
@@ -27,7 +27,7 @@ end
 #brand users
 
 10.times do
-  user = User.create!(name: Faker::Company.name,
+  user = User.create!(name: bar_array.sample,
     email: Faker::Internet.email,
     password: "123456",
     brand: true,
@@ -40,6 +40,8 @@ end
 
 #tenders
 
+category_array = ["Tonic Water", "Red Wine", "Vodka", "Orange Juice", "Cider"]
+
 
 10.times do
   tender = Tender.create!(deal_size: rand(1000..5000),
@@ -47,7 +49,8 @@ end
     deal_length: rand(4..24),
     end_date: DateTime.new(2021, 06, 12, 18, 00, 0),
     total_bids: rand(1..10),
-    user_id: User.pluck(:id).sample
+    user_id: User.pluck(:id).sample,
+    category: category_array.sample
     )
 end
 
