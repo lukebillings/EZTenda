@@ -1,0 +1,22 @@
+.tendercard {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 500px;
+  height: 180px;
+  margin: 8px auto;
+  background: #EAE5E0;
+  border-radius: 4px;
+  box-shadow: 5px 5px 5px rgba(0,0,0,.1);
+  min-height: 426px;
+  min-width: 452px;
+}
+
+
+.tendercard-description {
+  display: block;
+  margin: 0 auto;
+  max-width: 200px;
+}
+
+

@@ -1,1 +1,44 @@
-<p>Hello</p>
+
+<div class="container">
+  <h1>View Tenders</h1>
+  <h2>Stock your drinks with bars</h2>
+</div>
+
+
+<div class="filters">
+  <ul>
+    <li>deal size</li>
+    <li>deal length</li>
+    <li>category</li>
+  </ul>
+</div>
+
+<div class="col-12">
+  <div class="index-container">
+    <div class="d-flex justify-content-between">
+      <div class="row w-100">
+        <% @tenders.each do |tender| %>
+          <div class="tendercard">
+            <div class="tendercard-description">
+            <h4>Bar Name</h4>
+            <br>
+            <h5> <strong>About Bar</strong></h5>
+             <br>
+            <h5>Category</h5>
+             <br>
+            <h4> <%= tender.deal_length %> months </h4>
+             <br>
+            <h4> £ <%= tender.deal_size %> </h4>
+             <br>
+            <h4><strong>JOIN AUCTION</strong></h4>
+          </div>
+         </div>
+       <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
