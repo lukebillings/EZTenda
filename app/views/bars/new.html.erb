@@ -1,0 +1,8 @@
+<div class="container justify-content-center">
+    <%= simple_form_for Tender.new do |f| %>
+    <%= f.input :deal_size %>
+    <%= f.input :volume %>
+    <%= f.input :deal_length %>
+    <%= f.submit 'Save' %>
+    <% end %>
+</div>
